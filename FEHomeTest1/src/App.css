@@ -1,0 +1,90 @@
+.containers {
+  width: 1244px;
+  margin: 0 auto;
+}
+
+header {
+  background-image: linear-gradient(90deg, #fff 50%, #AA9585 50%);
+}
+
+.header-nav a{
+  color: #071731;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 60px;
+}
+
+.header-nav a.active, .header-nav a:hover {
+  text-decoration: underline;
+}
+
+.border-radius-btn {
+  border-radius: 0 16px;
+}
+
+.border-radius-24 {
+  border-radius: 0 24px;
+}
+
+.border-radius-50 {
+  border-radius: 0 50px;
+}
+
+.border-radius-60 {
+  border-radius: 0 60px;
+}
+
+
+.ratting img {
+  width: 20px;
+  aspect-ratio: 1;
+}
+
+.slide-dot span.active {
+  position: relative;
+  border: 1px solid #000;
+  background-color: transparent;
+}
+
+.slide-dot span.active::after {
+  content: '';
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: inherit;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.wrapper-arrow {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  border: 1px solid #9B897B;
+  position: relative;
+  cursor: pointer;
+}
+
+.wrapper-arrow>img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.bg-coffee{
+  background-image: url('/src/assets/images/bg-coffee.png');
+  background-size: cover;
+  height: 511px;
+}
+
+.shadow-around{
+  box-shadow: 0 0 16px #888;
+}
+
+.footer-options a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
