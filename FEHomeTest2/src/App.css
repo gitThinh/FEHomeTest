@@ -1,0 +1,64 @@
+.header-sticky {
+    background: #f6f7fb;
+    z-index: 100;
+    box-shadow: 0 0 10px #5b5c5c;
+}
+
+.create-btn {
+    background-color: #4255ff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.create-btn:hover {
+    background-color: #3448fa;
+}
+
+.create-btn:active {
+    background-color: #1b2aac;
+    border: 1px solid #ddd;
+}
+
+.add-border-bottom {
+    border-bottom: 2px solid #000;
+}
+
+.right-group-btn button{
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 100%;
+    justify-content: center;
+}
+.right-group-btn button svg{
+    width: 20px;
+    height: 20px;
+}
+
+.left-group-btn button,
+.right-group-btn button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #dee1eb;
+    gap: 8px;
+    background: #fff;
+    color: #586380;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.left-group-btn button:hover,
+.right-group-btn button:hover {
+    background: #edeff4;
+}
+
+.input-focus:focus + span {
+    background-color: #ffcd1f;
+    height: 2px;
+}
