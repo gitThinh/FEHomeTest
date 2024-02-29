@@ -13,7 +13,7 @@ import TermInput from "@/components/TermInput";
 
 import "./App.css";
 
-interface Term {
+export interface Term {
   term: string;
   definition: string;
 }
