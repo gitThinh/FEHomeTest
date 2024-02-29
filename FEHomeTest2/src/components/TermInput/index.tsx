@@ -2,11 +2,14 @@ import * as React from "react";
 
 import { FaGripLines, FaRegTrashCan, FaArrowRight } from "react-icons/fa6";
 import { SlPicture } from "react-icons/sl";
+import { Term } from "@/App";
 
 interface IAppProps {
   index: number;
-  removeTerm: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, index:number) => void;
-  valueTerm: object;
+  removeTerm: (index:number) => void;
+  valueTerm: Term;
+  setTerm: (index:number, term:string) => void;
+  setDefinition: (index:number, definition:string) => void;
 }
 
 const index: React.FunctionComponent<IAppProps> = (props) => {
@@ -65,7 +68,7 @@ const index: React.FunctionComponent<IAppProps> = (props) => {
           <button className="border-none bg-white p-1">
             <FaGripLines />
           </button>
-          <button onClick={(e) => props.removeTerm(e, props.index)} className="border-none bg-white p-1">
+          <button onClick={() => props.removeTerm(props.index)} className="border-none bg-white p-1">
             <FaRegTrashCan />
           </button>
         </div>
@@ -77,6 +80,8 @@ const index: React.FunctionComponent<IAppProps> = (props) => {
               type="text"
               className="input-focus w-full outline-none text-[#282e3e] text-lg leading-6"
               placeholder="Enter definition"
+              value={props.valueTerm.term}
+              onChange={(e) => props.setTerm(props.index, e.target.value) }
             />
             <span className="bg-black w-full h-[2px] block my-2"></span>
             <div className="flex flex-row justify-between">
@@ -91,6 +96,8 @@ const index: React.FunctionComponent<IAppProps> = (props) => {
               type="text"
               className="input-focus w-full outline-none text-[#282e3e] text-lg leading-6"
               placeholder="Enter definition"
+              value={props.valueTerm.definition}
+              onChange={(e) => props.setDefinition(props.index, e.target.value) }
             />
             <span className="bg-black w-full h-[2px] block my-2"></span>
             <div className="flex flex-row justify-between">

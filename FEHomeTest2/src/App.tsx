@@ -30,11 +30,8 @@ function App() {
     setTerms([...terms, { term: "", definition: "" }]);
   };
 
-  const removeTerm = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    index: number
-  ) => {
-    e.preventDefault();
+  const removeTerm = (index: number) => {
+    // e.preventDefault();
     if (terms.length > 2) {
       const newTerms = [...terms];
       newTerms.splice(index, 1);
@@ -43,6 +40,8 @@ function App() {
   };
 
   const setTerm = (index: number, newTerm: string) => {
+    console.log(terms);
+    
     const newTerms = [...terms];
     newTerms[index].term = newTerm;
     setTerms(newTerms);
@@ -148,7 +147,17 @@ function App() {
         <section className="flex flex-col gap-5">
           <div className="flex flex-col gap-5">
             {terms.map((item, index) => {
-              return <TermInput index={index} removeTerm={removeTerm} valueTerm={item}/>;
+              return (
+                <div key={index}>
+                  <TermInput
+                    index={index}
+                    removeTerm={removeTerm}
+                    valueTerm={item}
+                    setTerm={setTerm}
+                    setDefinition={setDefinition}
+                  />
+                </div>
+              );
             })}
           </div>
           <div className="w-full bg-white flex items-center justify-center">
