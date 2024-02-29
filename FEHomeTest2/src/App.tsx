@@ -20,14 +20,38 @@ interface Term {
 
 function App() {
   const header = useRef<HTMLDivElement>(null);
-  const [countTerm, setCountTerm] = useState<Term[]>([
+  const [terms, setTerms] = useState<Term[]>([
     { term: "", definition: "" },
     { term: "", definition: "" },
   ]);
 
   const addTerm = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    setCountTerm([...countTerm, { term: '', definition: '' }]);
+    setTerms([...terms, { term: "", definition: "" }]);
+  };
+
+  const removeTerm = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    if (terms.length > 2) {
+      const newTerms = [...terms];
+      newTerms.splice(index, 1);
+      setTerms(newTerms);
+    }
+  };
+
+  const setTerm = (index: number, newTerm: string) => {
+    const newTerms = [...terms];
+    newTerms[index].term = newTerm;
+    setTerms(newTerms);
+  };
+
+  const setDefinition = (index: number, newDefinition: string) => {
+    const newTerms = [...terms];
+    newTerms[index].definition = newDefinition;
+    setTerms(newTerms);
   };
 
   function stickyFunction() {
@@ -123,15 +147,16 @@ function App() {
         </section>
         <section className="flex flex-col gap-5">
           <div className="flex flex-col gap-5">
-            {
-              countTerm.map((term, index) =>{
-                return <TermInput index={index+1} />
-              })
-            }
+            {terms.map((item, index) => {
+              return <TermInput index={index} removeTerm={removeTerm} valueTerm={item}/>;
+            })}
           </div>
           <div className="w-full bg-white flex items-center justify-center">
             <div className=" py-8 flex flex-col w-max hover:text-[#ffcd1f]">
-              <button className="h-full text-base font-bold uppercase">
+              <button
+                onClick={addTerm}
+                className="h-full text-base font-bold uppercase"
+              >
                 <FaPlus /> ADD CARD
               </button>
               <span className="h-1 bg-[#4ed3d3] w-full block"></span>
@@ -139,7 +164,7 @@ function App() {
           </div>
         </section>
         <div className="mt-8 w-full flex justify-end">
-          <button onClick={addTerm} className="create-btn py-5 px-8 text-base">Create</button>
+          <button className="create-btn py-5 px-8 text-base">Create</button>
         </div>
       </form>
     </div>

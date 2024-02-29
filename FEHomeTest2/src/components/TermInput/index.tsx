@@ -5,6 +5,8 @@ import { SlPicture } from "react-icons/sl";
 
 interface IAppProps {
   index: number;
+  removeTerm: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, index:number) => void;
+  valueTerm: object;
 }
 
 const index: React.FunctionComponent<IAppProps> = (props) => {
@@ -57,13 +59,13 @@ const index: React.FunctionComponent<IAppProps> = (props) => {
   return (
     <div className="container rounded-lg bg-[#ffffff]">
       <div className="headerTerm p-5 flex flex-row justify-between border-b items-center">
-        <p className="text-[#939bb4] text-base font-bold">{props.index}</p>
+        <p className="text-[#939bb4] text-base font-bold">{props.index+1}</p>
         <div className="w-[350px] h-8 rounded-3xl bg-black"></div>
         <div className="flex flex-row gap-6">
           <button className="border-none bg-white p-1">
             <FaGripLines />
           </button>
-          <button className="border-none bg-white p-1">
+          <button onClick={(e) => props.removeTerm(e, props.index)} className="border-none bg-white p-1">
             <FaRegTrashCan />
           </button>
         </div>
